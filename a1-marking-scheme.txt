@@ -1,0 +1,91 @@
+Total before late penalty: [113/110]
+
+NOTE: in the marking report something left blank (e.g.  [ /6]) typically means
+that you got full marks for that item. 
+
+BONUS FOR WORKING WITH PARTNER [/3]
+
+CLIENT - FUNCTIONALITY: [/90]
+
+[/3] Code compiles without warnings
+[/2] Working makefile produces the JAR file
+  
+[/10] DictionaryConnection constructor
+     - Creates socket and initializes streams
+     - Properly sends exceptions if server doesn't exist or respond
+     - Properly sends exceptions if first status is not number, or not 220
+
+[/5] close method
+     - Sends QUIT command
+     - Optional: reads status response from QUIT
+     - Closes socket
+     - Ignores any exception from closing exception
+
+[/20] getDefinitions method
+     - sends DEFINE command properly with word and database
+     - checks if initial status code is correct
+     - keeps reading definitions until status is no longer 151
+     - properly returns empty set if status indicates no definition
+     - properly returns set of definitions if successful status
+     - creates definition with proper word (from status) and database (from map)
+     - appends definition with text up until (not including) period
+     - properly handles words with spaces
+     - follows the proper sequence of reads instead of just reading until a 151/2xx is read
+     - properly sends exception if connection is interrupted
+
+[/20] getMatchList method
+      - sends MATCH command properly with word, database and strategy
+      - checks if initial status is correct
+      - keeps reading matches until (not including) period
+      - properly returns empty set if status indicates no match
+      - properly returns set of matches if successful status
+      - handles parameter word with spaces
+      - handles retrieved word with spaces
+      - follows the proper sequence of reads instead of just reading until a 2xx is read.
+      - properly sends exception if connection is interrupted
+
+[/15] getDatabaseList method
+     - sends SHOW DB command properly
+     - checks if initial status is correct
+     - keeps reading databases until (not including) period
+     - properly returns empty set if status indicates no database
+     - properly returns set of databases if successful status
+     - follows the proper sequence of reads instead of just reading until a 2xx is read.
+     - properly sends exception if connection is interrupted.
+
+[/15] getStrategyList method
+     - sends SHOW STRAT command properly
+     - checks if initial status is correct
+     - keeps reading databases until (not including) period
+     - properly returns empty set if status indicates no strategy
+     - properly returns set of strategies if successful status
+     - follows the proper sequence of reads instead of just reading until a 2xx is read.
+     - properly sends exception if connection is interrupted.
+
+
+---------------------
+PROGRAM STRUCTURE AND STYLE: [/20]
+
+   * Easy to read, appropriate layout, lines aren't too long, blank
+     lines delineating blocks of code functionality. (Basically 
+     does it look good and is easy to read.)  [/3]
+
+   * Blocks of code commented. Is it clear what functionality each
+     block of code is responsible for? Is it clear what variables are
+     being used for?   [/3]
+
+   * Code is decomposed into methods. There shouldn't be long 
+     blocks of code or repeated code. [/3]
+
+   * Reasonable choice of algorithms and problem solving approach 
+     (for example doesn't read all of the ouput from the server
+      before priting it.)              [/4]
+
+   * Regular use of git to push changes to stash. [/2]
+
+   * Marker's discretion   [/5]
+
+
+MARKER'S ADDITIONAL COMMENTS:
+
+Awesome job! 
